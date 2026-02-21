@@ -2,7 +2,6 @@ import os
 import io
 import pymupdf
 import pytesseract
-import uuid
 from PIL import Image
 
 from source.models.rule import ADRules
@@ -35,21 +34,7 @@ class OCRService:
             full_text.append(text)
 
         return "\n\n--- Page Break ---\n\n".join(full_text)
-
-    def parse(self, text: str) -> ADRules:
-        """
-        Dummy parse method to satisfy the ParsingController interface.
-        OCRService purely extracts raw text, so this returns empty rules 
-        with a unique ID to prevent dictionary overwriting in pipeline.
-        """
-        from source.models.rule import ADApplicabilityRules
-        unique_id = f"OCR-MODE-RAW-{uuid.uuid4().hex[:8]}"
-        return ADRules(
-            ad_id=unique_id,
-            applicability_rules=ADApplicabilityRules(
-                aircraft_models=[],
-                msn_constraints=[],
-                excluded_if_modifications=[],
-                required_modifications=[]
-            )
-        )
+    
+    def parse(self, file_path: str) -> ADRules:
+        # TODO: Implement OCR parsing
+        pass

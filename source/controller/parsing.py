@@ -12,6 +12,15 @@ class ParsingController:
         self.parser = None
 
     def parse(self, document: Document) -> ADRules:
+        """
+        Parse document with some methods 
+
+        Args:
+            document (Document): Document to be parsed
+
+        Returns:
+            ADRules: Parsed rules
+        """
         logger.info(f"Parsing document: {document.filename}")
 
         # 1. Use OCR / VLM for scanned pdf

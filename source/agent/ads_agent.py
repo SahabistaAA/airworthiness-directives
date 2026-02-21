@@ -32,18 +32,6 @@ class ADSAgent:
         else:
             raise ValueError(f"Invalid mode: {mode}")
 
-    def ingest(self, document: Document) -> ADRules:
-        # TODO: Implement ingest
-        pass
-
-    def parser(self, document: Document) -> ADRules:
-        # TODO: Implement parser
-        pass
-
-    def evaluator(self, rules: ADRules, aircraft: AircraftConfiguration) -> bool:
-        # TODO: Implement evaluator
-        pass
-
     def process_document(self, document: Document) -> ADRules:
         from source.controller.parsing import ParsingController
         pc = ParsingController()
@@ -57,6 +45,5 @@ class ADSAgent:
 
     def run(self, document: Document, aircraft: AircraftConfiguration) -> bool:
         rules = self.process_document(document)
-        from source.controller.evaluation import EvaluationController
         evaluator = EvaluationController()
         return evaluator.evaluate(rules, aircraft)

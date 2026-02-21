@@ -1,5 +1,4 @@
 import os
-import uuid
 from typing import List
 from source.models.rule import ADRules
 from source.utils.logger import logger
