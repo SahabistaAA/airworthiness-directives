@@ -1,0 +1,25 @@
+{
+  "ad_id": "2025-0254R1",
+  "applicability_rules": {
+    "aircraft_models": [
+      "A320-211",
+      "A320-212",
+      "A320-214",
+      "A320-215",
+      "A320-216",
+      "A320-231",
+      "A320-232",
+      "A320-233",
+      "A321-111",
+      "A321-112",
+      "A321-131"
+    ],
+    "msn_constraints": null,
+    "excluded_if_modifications": [
+      "Airbus modification (mod) 24591",
+      "Airbus Service Bulletin (SB) A320-57-1089 at Revision 04",
+      "Airbus mod 24977"
+    ],
+    "required_modifications": []
+  }
+}
