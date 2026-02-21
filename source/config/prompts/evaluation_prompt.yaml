@@ -1,0 +1,18 @@
+evaluation_prompt: |
+  You are an expert aviation engineer.
+  Given the following Airworthiness Directive (AD) rules and an aircraft configuration, determine if the aircraft is affected.
+
+  AD Rules:
+  {rules_json}
+
+  Aircraft Configuration:
+  Model: {model}
+  MSN: {msn}
+  Modifications: {modifications}
+
+  Is this aircraft affected?
+  Return JSON:
+  {
+    "is_affected": boolean,
+    "reason":String explanation
+  }

@@ -1,0 +1,23 @@
+extraction_prompt: |
+  Extract the following information from the Airworthiness Directive (AD) text provided below.
+
+  AD ID: The unique identifier for this AD (e.g., FAA-2025-23-53 or EASA 2025-0254).
+  Applicability Rules:
+    - Aircraft Models: List all aircraft models mentioned as affected.
+    - MSN Constraints: List Manufacturer Serial Number (MSN) constraints that restrict overall applicability. Do NOT list MSNs that only define sub-groups for compliance times if the AD applies to "all MSN". For example, if it says "all MSN" but defines Group 2 as MSN 364, the msn_constraints should be empty.
+    - Excluded Modifications: List modifications that, if present, EXCLUDE the aircraft from this AD.
+    - Required Modifications: List modifications that MUST be present for the aircraft to be affected.
+
+  Return the output in valid JSON format matching this structure:
+  {
+    "ad_id": "string",
+    "applicability_rules": {
+      "aircraft_models": ["string"],
+      "msn_constraints": ["string"] or null,
+      "excluded_if_modifications": ["string"],
+      "required_modifications": ["string"]
+    }
+  }
+
+  AD Text:
+  {ad_text}
